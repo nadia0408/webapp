@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #d92626;
+  height: 100vh;
+  padding-top: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar ul li {
+  padding: 10px 20px;
 }
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  padding: 20px;
+  flex: 1;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+/* ===== Table Style (Existing) ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+/* ===== Kanban Layout ===== */
+.kanban-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.kanban-column {
+  background-color: #f1f1f1;
+  padding: 16px;
+  border-radius: 8px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+.kanban-task {
+  background-color: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+
+.kanban-task:active {
+  cursor: grabbing;
+  transform: scale(1.03);
+}
+
+.add-task-btn {
+  background-color: #d92626;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.add-task-btn:hover {
+  background-color: #b91c1c;
+}
+/* src/index.css or App.css */
+/* ... other styles ... */
+
+.modal-body-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-body-scrollbar::-webkit-scrollbar-track {
+    background: #f9f9f9; /* Light track */
+    border-radius: 10px;
+}
+.modal-body-scrollbar::-webkit-scrollbar-thumb {
+    background: #dc2626; /* Red scrollbar thumb */
+    border-radius: 10px;
+}
+.modal-body-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #b91c1c; /* Darker red on hover */
+}
+/* In src/index.css or App.css */
+.kanban-column-content::-webkit-scrollbar {
+  width: 6px;
+}
+.kanban-column-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.kanban-column-content::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+.kanban-column-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+/* In src/index.css or App.css - if TaskCard needs its own specific scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 5px; /* Or as needed */ }
+.custom-scrollbar::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cccccc; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #aaaaaa; }
